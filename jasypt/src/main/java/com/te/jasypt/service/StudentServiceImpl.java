@@ -1,0 +1,29 @@
+package com.te.jasypt.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.te.jasypt.dao.StudentDAO;
+import com.te.jasypt.entity.Student;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+
+	@Autowired
+	private StudentDAO studentDAO;
+
+	@Override
+	public Student saveStudent(Student student) {
+
+		return studentDAO.save(student);
+	}
+
+	@Override
+	public List<Student> displayAll() {
+
+		return studentDAO.findAll();
+	}
+
+}
